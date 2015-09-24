@@ -1,0 +1,77 @@
+{% extends "pic_site/base.html" %}
+{% load staticfiles %}
+
+{% block imports %}
+<!-- Custom Fonts -->
+<link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block blueimp %}
+{% endblock %}
+
+{% block content %}
+
+
+<div class="container" style="padding-left:10%;padding-right:10%;"  >
+
+
+	<div class="row">
+		<div class="col-md-12">
+			<h1 style='text-align : center;'> Présentation d’Envol </h1> <br/>
+		</div>
+	</div>
+
+
+
+	<div class="row" >
+		<div class="col-md-12" >
+			<img  class="image center-block" style="width:80%;" src="{% static 'images/envol/envol-16.jpg' %}" alt="Not Rendered">
+		</div>
+
+	</div>
+
+	<div class="row" style="line-height: 1.8em; margin:4% 0% 4% 0%;" >
+		<div class="col-md-3">
+			<h4>Ses dimensions :</h4>
+				<ul>
+				<li>	Longueur : 2.80 m</li>
+				<li>	Largeur : 1.30 m</li>
+				<li>	Hauteur : 0.40 m</li>
+				<li>	Masse à vide : 45 kg</li>
+				</ul>
+		</div>
+
+		<div class="col-md-6" style="border-left: solid #FFF0FF;border-right: solid #FFF0FF;">
+			<h4>Ses caractéristiques sont les suivantes :</h4>
+				<ul>
+				<li>	Moteur de 4 temps de 26 cm^3 développant 1.2 CV (depuis 1997)</li>
+				<li>	Injection et gestion électronique intégrale du moteur</li>
+				<li>	Coque auto-porteuse en carbone/Kevlar</li>
+				<li>	Roues profilées en carbone</li>
+				<li>	Résistance aérodynamique très faible optimisée en soufflerie</li>
+				</ul>
+		</div>
+
+		<div class="col-md-3">
+			<h4>Ses performances :</h4>
+				<ul>
+				<li>	Vitesse max : 65 km/h</li>
+				<li>	Performances enregistrées :227 km/L, 256 km/L, 273 km/L, 365 km/L (avec un moteur deux temps).</li>
+				</ul>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-12" >
+			<img  class="image center-block" style="width:50%;" src="{% static 'images/envol/envol_chassispetit-15.jpg' %}" alt="Not Rendered">
+		</div>
+
+	</div>
+
+
+
+
+
+
+</div>
+{% endblock %}

@@ -1,0 +1,202 @@
+{% extends "pic_site/base.html" %}
+{% load staticfiles %}
+
+{% block imports %}
+<!-- Custom Fonts -->
+<link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+{% endblock %}
+
+
+{% block content %}
+<article>
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+				<h1  style='text-align:center;'>Le simulateur du PIC</h1>
+                </div>
+	</div>
+
+
+	<div class="row">
+		<div class="col-md-12">
+			<h2> Qu'est-ce que c'est ? </h2>
+			<p  >
+				Il s'agit d'un simulateur de pilotage de prototype sur le circuit de Nogaro.<br/><br/>
+			</p>
+                </div>
+	</div>
+
+
+	<div class="row">
+		<div class="col-xs-6">
+			<a href="{% static 'images/simulateur/Capture d’écran 2014-09-24 à 14.33.59.png' %}">
+			<img class="img-responsive" src="{% static 'images/simulateur/Capture d’écran 2014-09-24 à 14.33.59.png' %}" style="width:80%;float:right;" alt="">
+			</a>
+                </div>
+		<div class="col-xs-6">
+			<a href="{% static 'images/simulateur/Capture d’écran 2014-09-24 à 14.34.26.png' %}">
+			<img class="img-responsive" src="{% static 'images/simulateur/Capture d’écran 2014-09-24 à 14.34.26.png' %}" style="width:80%;float:left;" alt="">
+			</a>
+                </div>
+		<p  style='text-align:center;font-size:110%;margin-top:30%;'>
+			A gauche, l'image du simulateur et àdroite, la photo. </br>
+		</p>
+	</div>
+
+
+	<hr style="width:100%; " />  <!-- ********************************************** -->
+
+	<div class="row">
+		<div class="col-md-12">
+			<h2> Pourquoi ? </h2>
+			<p>
+				Un des problèmes que nous rencontrons au Proto Insa Club est d'avoir des pilotes qui ne restent dans l'association que 2 ou 3 ans. Une bonne performance demande à la fois un bon véhicule et une bonne stratégie, mais aussi un pilote expérimenté, qui a l'habitude du circuit et de ses particularités. Etant donnéque nous sommes basés à Lyon, nous pouvons difficilement nous permettre de nous déplacer àNogaro plus d'une fois par an, lors de la course, et nous avions donc besoin d'un moyen de former nos pilotes au circuit.<br/><br/>
+En septembre 2005, nous avons donc décidéde lancer ce projet. L'équipe est composée principalement des membres de l'association suivants :<br/><br/>
+
+Sébastien BAYLE : département Informatique<br/>
+Damien CHILOT : département Informatique<br/>
+Stephan FISCHER : Premier Cycle<br/>
+Xavier GIGNAC : département Informatique<br/>
+Sylvain MEYGRET : département Génie Electrique<br/>
+Elsie RAKOTONDRASEDO : département Génie Electrique<br/>
+Armand BOLMONT : département Génie Mécanique<br/><br/>
+
+et tous les autres, qui nous ont donnéun coup de main quand on en a eu besoin.<br/>
+
+			</p>
+                </div>
+	</div>
+
+<hr style="width:100%; " />  <!-- ********************************************** -->
+
+	<div class="row">
+		<div class="col-md-12">
+			<h2> Comment ça marche ? </h2>
+			<p>
+				L'idée étant d'avoir une immersion la plus complète du pilote, nous avons eu recours àdes technologies empruntéesàla réalitévirtuelle et àl'industrie du jeu vidéo, àsavoir :<br/><br/>
+
+- un moteur graphique basésur Ogre<br/>
+- un moteur physique avec ODE<br/>
+- un moteur sonore avec OpenAL<br/><br/>
+
+La modélisation du circuit a étérelativement longue afin d'avoir un tracéréaliste. Nos sources de données ont été:<br/><br/>
+
+- les données topographiques du circuit de Nogaro<br/>
+- une base de travail (textures et tracégénéral) grâce àla modélisation précédente réalisée par Frank55 pour le jeu vidéo GTR.<br/><br/>
+
+Cette base de travail nous a étéd'une aide très précieuse pour ce qui est des textures. Nous avons du refaire le tracéavec les véritables coordonnées x, y, z indiquées par le relevétopographique.<br/><br/>
+			</p>
+                </div>
+	</div>
+
+	<div class="row">
+		<div class="col-xs-6">
+			<a href="{% static 'images/simulateur/Capture d’écran 2014-09-24 à 14.34.35.png' %}">
+			<img class="img-responsive" src="{% static 'images/simulateur/Capture d’écran 2014-09-24 à 14.34.35.png' %}" style="width:80%;float:right;" alt="">
+			</a>
+                </div>
+		<div class="col-xs-6">
+			<a href="{% static 'images/simulateur/Capture d’écran 2014-09-24 à 14.34.46.png' %}">
+			<img class="img-responsive" src="{% static 'images/simulateur/Capture d’écran 2014-09-24 à 14.34.46.png' %}" style="width:80%;float:left;" alt="">
+			</a>
+                </div>
+	</div>
+
+
+<hr style="width:100%; " />  <!-- ********************************************** -->
+
+	<div class="row">
+		<div class="col-md-12">
+			<h2> Cohérence physique : </h2>
+			<p>
+				Le comportement physique du prototype a étépossible grâce àl'utilisation de ODE. Nous avons validéle modèle physique en n'appliquant aucun frottement et en faisant un tour complet du circuit. Nous sommes bien repassés àla même vitesse au point de départ (Les erreurs cumulées de calcul ne semblent pas affecter le comportement de plus de quelques km/h par tour).<br/><br/>
+
+Ensuite, nous avons appliquédes forces de frottements telles que la trainéeaérodynamique, les pertes dues au roulage, etc.<br/><br/>
+ 
+Le comportement physique colle maintenant àla réalité, et nous avons pu reproduire les vitesse obtenues sur le véritable circuit, même lorsque le vent souffle.<br/><br/>
+			</p>
+                </div>
+	</div>
+
+	<div class="row" >
+		<div class="col-xs-4">
+			<a href="{% static 'images/simulateur/Capture d’écran 2014-09-24 à 14.34.59.png' %}">
+			<img src="{% static 'images/simulateur/Capture d’écran 2014-09-24 à 14.34.59.png' %}" style="width:100%;" alt="">
+			</a>
+                </div>
+
+		<div class="col-xs-4">
+			<a href="{% static 'images/simulateur/Capture d’écran 2014-09-24 à 14.35.08.png' %}">
+			<img  src="{% static 'images/simulateur/Capture d’écran 2014-09-24 à 14.35.08.png' %}" style="width:93%;float:right;margin-right:4%;" alt="">
+			</a>
+                </div>
+
+		<div class="col-xs-4">
+			<a href="{% static 'images/simulateur/Capture d’écran 2014-09-24 à 14.35.17.png' %}">
+			<img  src="{% static 'images/simulateur/Capture d’écran 2014-09-24 à 14.35.17.png' %}" style="width:93%;" alt="">
+			</a>
+                </div>
+	</div>
+
+
+
+<hr style="width:100%; " />  <!-- ********************************************** -->
+
+	<div class="row">
+		<div class="col-md-8">
+			<h2>Rendu 3D :</h2><br/>
+			<p>La caméra utilisée a étéplacée àl'emplacement de la tête du pilote dans le prototype réel. L'angle de vision est aussi respecté, ce qui permet de rendre compte parfaitement de la visibilitédepuis l'intérieur du prototype.<br/><br/>
+
+			Nous avons rajoutéàcela un mode 3D dit "anaglyphe" permettant de faire sortir les objets 3D de l'écran. Equipéde lunettes rouges/cyan, le pilote peut ainsi apprécier les distances et mieux se rendre compte de la vitesse.<br/><br/>
+
+Possible techniquement pour de la 3D temps réel uniquement depuis peu (utilisation de cartes graphiques programmables avec les pixels Shaders), nous sommes parmis les premiers àexploiter cette particularitépour de la réalitévirtuelle, le principal avantage face aux solutions concurrentes (lunettes polarisées ou àcristaux liquides) étant le prix : aucune modification n'est nécessaire sur le PC ou l'écran, il suffit uniquement de modifier le logiciel et d'avoir une paire de lunettes en carton (moins d'un euro pièce).
+<br/><br/>
+
+Pour tout renseignement complémentaire, contactez moi : sebastien .bayle @ insa-lyon.fr (enlevez les espaces)<br/><br/><br/>
+			</p>
+                </div>
+		<div class="col-md-4 hidden-xs">
+			<a href="{% static 'images/simulateur/Capture d’écran 2014-09-24 à 14.35.26.png' %}">
+			<img src="{% static 'images/simulateur/Capture d’écran 2014-09-24 à 14.35.26.png' %}" style="width:100%;padding-top:22%;" alt="">
+			</a>
+                </div>
+		<div class="col-md-4 viewed-xs">
+			<a href="{% static 'images/simulateur/Capture d’écran 2014-09-24 à 14.35.26.png' %}">
+			<img src="{% static 'images/simulateur/Capture d’écran 2014-09-24 à 14.35.26.png' %}" style="width:100%;padding-bottom:3%;" alt="">
+			</a>
+                </div>
+
+	</div>
+
+	<div class="row">
+		<div class="col-xs-3">
+			<a href="{% static 'images/simulateur/Capture d’écran 2014-09-24 à 14.35.35.png' %}">
+			<img class="img-responsive" src="{% static 'images/simulateur/Capture d’écran 2014-09-24 à 14.35.35.png' %}" style="width:100%;" alt="">
+			</a>
+                </div>
+
+		<div class="col-xs-3">
+			<a href="{% static 'images/simulateur/Capture d’écran 2014-09-24 à 14.35.42.png' %}">
+			<img class="img-responsive" src="{% static 'images/simulateur/Capture d’écran 2014-09-24 à 14.35.42.png' %}" style="width:100%;" alt="">
+			</a>
+                </div>
+
+		<div class="col-xs-3">
+			<a href="{% static 'images/simulateur/Capture d’écran 2014-09-24 à 14.35.53.png' %}">
+			<img class="img-responsive" src="{% static 'images/simulateur/Capture d’écran 2014-09-24 à 14.35.53.png' %}" style="width:100%;" alt="">
+			</a>
+                </div>
+
+		<div class="col-xs-3">
+			<a href="{% static 'images/simulateur/Capture d’écran 2014-09-24 à 14.36.01.png' %}">
+			<img class="img-responsive" src="{% static 'images/simulateur/Capture d’écran 2014-09-24 à 14.36.01.png' %}" style="width:100%;" alt="">
+			</a>
+                </div>
+	</div>
+
+
+
+</div>
+</article>
+
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends "pic_site/base.html" %}
+{% load staticfiles %}
+
+{% block imports %}
+<!-- Custom Fonts -->
+<link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block blueimp %}
+{% endblock %}
+
+{% block content %}
+<div class="container" style="padding-left:20%;padding-right:20%;font-size:120%" >
+<h2 align=center>Temps forts et résultats</h2> </br>
+
+<b>1991</b></br>
+Création du club au nom du PIC !</br></br>
+
+<b>1992</b></br>
+1er prototype pour le Shell : « ENVOL »</br></br>
+
+<b>1995</b></br>
+Record d’ENVOL : 365 km/L</br></br>
+
+<b>1996</b></br>
+2ème prototype : « ORCA »</br></br>
+
+<b>2000</b></br>
+Record d’ORCA : 990 km/L</br></br>
+
+<b>2004-2005</b></br>
+Création du Prototype « EPIC »</br></br>
+
+<b>2005 -2006</b></br>
+1er résultat d’EPIC : 1348 km/L (Shell Eco – Nogaro – France)</br>
+1er prix de l’éducation nationale (dossier sur comportement des roulements à bille)</br></br>
+
+<b>2006-2007</b></br>
+1829 km/L au Shell Eco Marathon.</br>
+Mention spéciale du Jury du Prix de l’Innovation Technique(Simulateur)</br></br>
+
+<b>2007-2008</b></br>
+Passage à l’éthanol sur EPIC : 2eme au classement de la catégorie (Shell Eco – Nogaro - France)</br></br>
+
+<b>2009-2010</b></br>
+RECORD DU PIC AVEC 1833 km/L (Shell Eco – Eurospeedway Lausitz – Allemagne)</br></br>
+
+<b>2012-2013</b></br>
+4ème place en combustion interne et 5ème place au CLASSEMENT GENERAL DU SHELL ECO MARATHON avec 1465 km/L (Ahoy – Rotterdam – Pays-bas)</br></br>
+
+
+<b>2013-2014</b></br>
+9ème place en combustion interne et 11ème place au classement général du Shell Eco Marathon avec 1395 km/L (Ahoy - Rotterdam - Pays Bas)</br></br>
+
+<b>2015</b></br>
+Conception d’un nouveau prototype…</br></br>
+</div>
+{% endblock %}

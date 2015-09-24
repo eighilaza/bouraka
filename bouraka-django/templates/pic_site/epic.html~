@@ -1,0 +1,264 @@
+{% extends "pic_site/base.html" %}
+{% load staticfiles %}
+
+
+{% block imports %}
+<!-- Custom Fonts -->
+<link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block blueimp %}
+{% endblock %}
+
+{% block content %}
+
+<div class="container" style="padding-left:10%;padding-right:10%;"  >
+
+	<div class="row" style="padding:1%">
+		<div class="col-md-12">
+			<h1 style='text-align : center;'> Présentation d’EPIC </h1> <br/>
+		</div>
+	</div>
+
+	<div class="row" style="margin-bottom:6%">
+		<div class="col-md-7" style="padding-bottom:-2%">
+			<img  style="width:100%;" src="{% static 'images/EPIC en course.jpg' %}" alt="Not Rendered">
+		</div>
+
+		<div class="col-md-5"  style="height:100%; padding-top:9%; padding-left:0%">
+				<ul style="list-style-type: none;" >
+					<li>Dimensions:</li>			
+					<li>Longueur : 3m</li>
+					<li>Largeur : 0,66m</li>
+					<li>Hauteur : 0,6m</li>
+					<br/>
+					<li>Masse à vide : 37 Kg (en 2014)</li>
+				</ul>
+		</div>
+
+	</div>
+
+	<hr style="width:100%; margin-top:5%;" />  <!-- ********************************************** -->
+
+	<div class="row" >
+		<div class="col-md-12">
+			<h2>Châssis</h2><br/>
+		</div>
+	</div>
+
+	<div class="row hidden-xs" >
+			<div class="col-md-3" >
+				<img  style="width:100%; float:left;" src="{% static 'images/Nida_Hexcel.jpg' %}" alt="Not Rendered">
+			</div>
+			<div class="col-md-6" style="padding-top:5%;">
+				<p align="jusify" style="margin:5%;"> Partie supérieure de la coque en fibre de verre structure nid d’abeille (3mm)</p>
+				<p align="jusify" style="padding-tôp:5%;margin:5%;"> Châssis autoporteur en carbone Nomex structure nid d’abeille (10mm) </p>
+
+			</div>
+			<div class="col-md-3" >
+				<img style="width:100%; margin-top:15%; float:right;" src="{% static 'images/carbon fiber rouleau.jpg' %}" alt="Not Rendered">
+			</div>
+	</div>
+
+	<div class="row visible-xs" >
+			<div class="col-xs-4" >
+				<img  style="width:100%; float:left;" src="{% static 'images/Nida_Hexcel.jpg' %}" alt="Not Rendered">
+				<img style="width:100%; margin-top:15%; float:right;" src="{% static 'images/carbon fiber rouleau.jpg' %}" alt="Not Rendered">
+			</div>
+			<div class="col-xs-8" style="padding-top:8%;">
+				<p align="jusify" style="margin:5%;"> Partie supérieure de la coque en fibre de verre structure nid d’abeille (3mm)</p>
+				<br/><br/>
+				<p align="jusify" style="margin-top:18%;"> Châssis autoporteur en carbone Nomex structure nid d’abeille (10mm) </p>
+
+			</div>
+	</div>
+
+	<hr style="width:100%; margin-top:5%;" />  <!-- ********************************************** -->
+
+	<div class="row" style="margin-top:5%" >
+		<div class="col-md-12">
+			<h2>Roues / freins</h2><br/>
+		</div>
+	</div>
+
+
+	<div class="row">
+			<div class="col-xs-8" >
+				<div class="row">
+
+					<div class="col-xs-12" style="margin-right:5%" >
+						<p align="jusify" >Flasques réalisées en carbone et mousse (10mm ROHACELL IG-031).<p>
+						<p>Jantes réalisées en carbone uniquement.</p>
+						<p>Pneumatiques Michelin « Radial » spécialement développés pour la compétition du Shell Eco Marathon, fournissant une très faible résistance au roulement.</p>
+						<p>Freins:</br>
+							Avant : Freins à disque de VTT (épaisseur 1mm) en aluminium</br>
+							Arrière : Frein type V-Brake.</br>
+						</p>
+					</div>
+
+				</div>
+
+
+				<div class="row" style="padding:5%">
+						<div class="col-xs-6">
+							<img  style="width:112%; height:100%;  margin-left:-5%;" src="{% static 'images/Capture flasque.png' %}" alt="Not Rendered">
+						</div>
+						<div class="col-xs-6">
+							<img  style="width:100%;height:100%; margin-left:5%;" src="{% static 'images/Roues.jpg' %}" alt="Not Rendered">
+						</div>
+				</div>
+
+			</div>
+			<div class="col-xs-4">
+				<img  style="width:80%;margin-left:17%;margin-top:12%;" src="{% static 'images/Roue-Fusee.jpg' %}" alt="Not Rendered">
+			</div>
+	
+	</div>
+
+	<hr style="width:100%; margin-top:5%;" />  <!-- ********************************************** -->
+
+	<div class="row" style="margin-top:5%" >
+		<div class="col-md-12">
+			<h2>Moteur / Transmission</h2><br/>
+		</div>
+	</div>
+	
+
+	<div class="row">
+		<div class="col-xs-12">
+			<p>Moteur fonctionnant au sans plomb 95. Conception maison sur la base d’un carter de motocyclette MBK. </p>
+
+			<p>Cylindrée : 32 cm3</br>
+			Puissance : 1,5 Chevaux</br>
+			Couple : 1,5 Nm à 4000 tr/min<p>
+
+			<p>Double arbre à came en tête.</br>
+			Embrayage centrifuge avec adhérence par masselottes sur la cloche.</br>
+			Capteurs de vitesse et de température (réalisés maison).</p>
+
+			<p>Injection électronique (voir partie électronique) avec réservoir d’air mis sous pression (5 Bars).</p>
+
+			<p>Transmission à la roue arrière par chaîne.</p>
+		</div>
+	</div>
+
+	<div class="row" style="margin-top:2%">
+		<div class="col-xs-4">
+			<img style="width:85%;" src="{% static 'images/Moteur_1.jpg' %}" alt="Not Rendered">
+		</div>
+
+		<div class="col-xs-4">
+			<img style="width:85%;" src="{% static 'images/Moteur_2.jpg' %}" alt="Not Rendered">
+		</div>
+
+		<div class="col-xs-4">
+			<img style="width:85%;" src="{% static 'images/Moteur_3.jpg' %}" alt="Not Rendered">
+		</div>
+	</div>
+
+	<hr style="width:100%; margin-top:5%;" />  <!-- ********************************************** -->
+
+	<div class="row" style="margin-top:5%" >
+		<div class="col-md-12">
+			<h2>Volant / Direction</h2><br/>
+		</div>
+	</div>
+
+
+
+<div class="row" >
+		<div class="col-xs-12">
+			<p>Direction assurée par des fusées en aluminium et des rotules en inox. </br>
+				Volant réalisé en impression 3D.<br/>
+				Commande de direction par pivotement horizontal de la colonne.</p>
+		</div>
+	</div>
+
+
+	<div class="row" style="margin-top:2%">
+		<div class="col-xs-6">
+			<img style="width:85%; margin-left:5%;" src="{% static 'images/volant-2.jpg' %}" alt="Not Rendered">
+		</div>
+
+		<div class="col-xs-6">
+			<img style="width:85%; margin-right:2%;" src="{% static 'images/volant-5.jpg' %}" alt="Not Rendered">
+		</div>
+	</div>
+
+	<hr style="width:100%; margin-top:5%;" />  <!-- ********************************************** -->
+
+	<div class="row" style="margin-top:5%" >
+		<div class="col-md-12">
+			<h2>Electronique</h2><br/>
+		</div>
+	</div>
+
+<div class="row" >
+		<div class="col-xs-12">
+			<img src="{% static 'images/MoTec.jpeg' %}" alt="Not Rendered" style="float:right; width:40%;">
+
+			<p align=justify>MOTEC : Utilisation d'un calculateur Motec M4 (issu du Rallye) : prise en compte de la température d'air, de l'état de la batterie, gestion de la sonde lambda (réglage de la richesse du moteur), gestion de l'injection et de l'allumage du moteur. Il est également utilisé pour enregistrer les données en course, telles que la vitesse de la roue, du moteur ou encore la quantité d'essence injectée.<br/><br/>
+			Pour plus d’informations, consulter la rubrique « Projets - Electronique ».</p>
+
+
+		</div>
+	</div>
+
+	<hr style="width:100%; margin-top:5%;" />  <!-- ********************************************** -->
+
+	<div class="row" style="margin-top:5%" >
+		<div class="col-md-12">
+			<h2>Modifications effectuées</h2><br/>
+		</div>
+	</div>
+	<div>
+		<p style="color:red;">
+				EN COURS
+		</p>
+	</div>
+
+	<hr style="width:100%; margin-top:5%;" />  <!-- ********************************************** -->
+
+	<div class="row" style="margin-top:5%" >
+		<div class="col-md-12">
+			<h2>Performances</h2><br/>
+		</div>
+	</div>
+	<div>
+		<p>
+			2005 : 17ème place au général - 1348 Km/L (Nogaro)</br>
+			2006 : 5ème place en essence / 10ème place au général - 1829 Km/L (Nogaro)</br>
+			2007 : 8ème place en combustion interne - 1769 Km/L (Nogaro)</br>
+			2008 : 2ème place en éthanol / 12ème en combustion interne - 1370 Km/L (Nogaro)</br>
+			2009 : 16ème place au général - 1821 Km/L (Lausitz)</br>
+			2010 : 7ème place en essence / 13ème place au général - 1833 Km/L (Lausitz)</br>
+			2011 : 9ème place au général - 1733 Km/L (Lausitz)</br>
+			2012 : 9ème place au général - 1319 Km/L (Rotterdam)</br>
+			2013 : 4ème place en essence / 5ème place au général - 1495 Km/L (Rottedam), </br>
+			2014 : 9ème place en essence / 11ème place au général - 1396 Km/L (Rotterdam)</br>
+
+		</p>
+	<div/>
+
+
+</div>
+{% endblock %}
+
+
+
+
+
+			<img  style="width:80%;" src="{% static 'images/shell/oceanide1994.jpg' %}" alt="Not Rendered">
+			<img  style="width:80%;" src="{% static 'images/shell/8752617761_04813e60b3_o.jpg' %}" alt="Not Rendered">
+			<img  style="width:80%;" src="{% static 'images/shell/14182701816_9239ac36cd_z.jpg' %}" alt="Not Rendered">
+
+
+
+
+
+
+
+
+
+
+

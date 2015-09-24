@@ -1,0 +1,52 @@
+{% extends "pic_site/base.html" %}
+{% load staticfiles %}
+
+{% block imports %}
+<!-- Custom Fonts -->
+<link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block blueimp %}
+{% endblock %}
+
+{% load widget_tweaks %}
+
+{% block content %}
+{{form.media}}
+<div id="add"  align=center>
+        <form action="/newsletter/" method="POST" enctype="multipart/form-data" > {% csrf_token %}
+<h2> Envoyer une newsletter : </h2>
+        <table class="addForm">
+
+                        {% if form.errors %}
+                        <p>L'object, la newsletter et le text sont requis!<br></p>
+                        {% endif %}
+                        <tr>
+                        <td><label for="title">Objet : </label><br></td>
+                        <td>{{form.subject|add_class:"form-control"}}</td>
+                        </tr>
+
+                        <td><label for="title">Newsletter : </label></td>
+                        <td>{{form.newsletter|add_class:"form-control"}}</td>
+                        </tr>
+
+
+                        <tr>
+                        <td><label for="title">Joindre un fichier :   </label></td>
+                        <td>{{form.attachement|add_class:"browse"}}</td>
+                        </tr>
+
+                        </table>
+
+                        <tr><td>{{form.body}}</td><tr>
+			
+			<br>
+                        <input type='submit' name="envoyer" class="btn btn-sm btn-primary btn-block" style="width:150px" value='Envoyer' />
+        </form>
+</div>
+
+
+
+
+
+{% endblock %}
