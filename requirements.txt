@@ -1,6 +1,5 @@
-#django==1.7.3
 Django==1.8.4
-Pillow==2.7.0
+Pillow
 django-photologue==3.1.1
 django-pagedown
 django-widget-tweaks
