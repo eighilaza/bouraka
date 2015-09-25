@@ -1,0 +1,52 @@
+{% extends "bouraka/base.html" %}
+{% load staticfiles %}
+
+{% block blueimp %}
+
+
+<!-- The Gallery as lightbox dialog, should be a child element of the document body 
+<div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls">
+  <div class="slides"></div>
+  <h3 class="title"></h3>
+  <a class="prev">‹</a>
+  <a class="next">›</a>
+  <a class="close">×</a>
+  <a class="play-pause"></a>
+  <ol class="indicator"></ol>
+</div> -->
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <!-- The Gallery as inline carousel, can be positioned anywhere on the page -->
+      <div id="blueimp-gallery-carousel" class="blueimp-gallery blueimp-gallery-carousel">
+        <div class="slides"></div>
+        <h3 class="title"></h3>
+        <a class="prev">‹</a>
+        <a class="next">›</a>
+        <a class="play-pause"></a>
+        <ol class="indicator"></ol> 
+      </div>
+      <!-- list of pictures to display -->
+      <div id="links" class="links">
+        <a href="{% static 'images/car.jpg' %}" title="pic 1">
+          <!-- <img src="{% static 'images/thumbnails/car.jpg' %}" alt="pic 1"> -->
+        </a>
+        <a href="{% static 'images/photonews2.jpg' %}" title="pic 2">
+          <!-- <img src="{% static 'images/thumbnails/photonews2.jpg' %}" alt="pic 2"> -->
+        </a>
+        <a href="{% static 'images/photo3.jpg' %}" title="pic 3">
+          <!-- <img src="{% static 'images/thumbnails/photo3.jpg' %}" alt="pic 3"> -->
+        </a>
+        <a href= "{% static 'images/photonews1.jpg' %}" title="pic 4">
+          <!-- <img src="{% static 'images/thumbnails/photonews1.jpg' %}" alt="pic 4"> -->
+        </a>
+      </div> 
+      <br>
+    </div>
+
+{% endblock %}
+
+{% block content %}
+
+{% endblock %}

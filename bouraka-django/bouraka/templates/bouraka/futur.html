@@ -1,0 +1,306 @@
+	{% extends "bouraka/base.html" %}
+	{% load staticfiles %}
+
+	{% block imports %}
+	<!-- Custom CSS -->
+	<link href="{% static 'css/elec.css' %}" rel="stylesheet">
+	<!-- Custom Fonts -->
+	<link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+	{% endblock %}
+
+	{% block blueimp %}
+	{% endblock %}
+
+	{% block content %}
+
+	<article>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<h1 style='text-align:center;'>Présentation du nouveau Prototype</h1>         
+			</div>
+
+			<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+				<nav role="navigation" class="table-of-contents">
+					<h2 class="section-heading">Sommaire</h2>
+					<ul>
+						<li><a href="#introduction">Introduction</a></li>
+						<li>
+							<a href="#conception">La conception / modélisation 3D</a>
+							<ul>
+								<li><a href="#coque">La Coque : 10 mois de modélisation</a></li>
+								<li><a href="#chassis">Le châssis</a></li>  
+								<li><a href="#avant">Le train avant et la direction avant</a></li>    
+								<li><a href="#arriere">Le train arrière amovible</a></li>                  
+							</ul>
+						</li>
+						<li>
+							<a href="#carac">Caractéristiques techniques générales</a>
+							<ul>
+								<li><a href="#dim">Dimensions et masse</a></li>
+								<li><a href="#mat">Matériaux</a></li>                
+							</ul>
+						</li>
+						<li>
+							<a href="#fab">La fabrication et la réalisation des pièces</a>
+							<ul>
+								<li><a href="#fam">Familiarisation et tests préliminaires avec la maquette 1:3</a></li>
+								<li><a href="#premiere">Premières pièces</a></li>
+								<li><a href="#prochaine">Prochaines étapes</a></li>
+							</ul>
+						</li>                      
+					</ul>
+				</nav>  
+
+				<div class="section">
+					<span id="introduction" class="anchor"></span>
+					<h2 class="section-heading">Introduction</h2>
+
+					<p align="justify">Projet lancé au début de l’année 2013, le nouveau prototype a été développé sur deux ans, moyennant tout le savoir-faire acquis par l’équipe depuis de nombreuses années.</p>
+
+					<p align="justify">Ce projet a tout d’abord été lancé lorsque nous avons appris que Shell changerait son règlement de la compétition dans les deux ans à venir, avec une modification au niveau du rayon de braquage, passant de 10m à 8m. L’architecture du prototype actuel EPIC lui autorisant à peine un braquage sous les 10m, nous étions contraints à la conception d’un nouveau véhicule.</p>
+
+					<p align="justify">Mais c’est aussi une volonté de notre part que de s’être lancés dans ce challenge, marquant un tournant dans l’histoire du club, étant donné que la construction d’un nouveau véhicule ne se renouvelle que toutes les dizaines d’années. Ce fut donc une grande occasion de se plonger dans sa conception, d’explorer des choses nouvelles qui permettront à ce nouveau véhicule d’être plus performant qu’EPIC, et d’offrir une architecture plus flexible en termes d’accessibilité pour les réglages (train arrière, direction avant, etc…).</p>
+
+					<p align="justify">Cet article décrit donc les différentes parties du nouveau prototype, et explique certains choix de conception par comparaison avec le véhicule actuel.</p>
+				</div>
+
+				<div class="section">
+					<span id="conception" class="anchor"></span>
+					<h1 class="section-heading">La conception / modélisation 3D</h1>
+					<div class="section">
+						<span id="coque" class="anchor"></span>
+						<h2 class="section-heading">La Coque : 10 mois de modélisation</h2>
+
+						<p align="justify">La coque du nouveau prototype a été la partie nécessitant le plus de travail. En effet, cette dernière joue un rôle important en termes d’aérodynamique, car le coefficient de pénétration dans l’air dépend directement de sa forme (notamment la surface frontale). Les tests en soufflerie demandant beaucoup de temps et étant extrêmement coûteux, c’est en prenant en main un logiciel d’écoulement des fluides par modélisation en éléments finis, qu’a été optimisée au maximum la forme du véhicule final. De nombreuses coques ont donc été testées, en même temps que nos modèles de simulation ont pu gagner en fiabilité et en performance</p>
+						<br>
+	                <div class="container">
+	                    <div class="row">
+	                         <div class="col-lg-4 col-sm-6">
+	                			<a href="{% static 'images/future/future16.PNG' %}">
+	                    		<img class="img-responsive center-block" src="{% static 'images/future/future16.PNG' %}" alt="" style="width:82%;"></a>
+	                		</div>
+	                		<div class="col-lg-4 col-sm-6">
+	                			<a href="{% static 'images/future/future17.PNG' %}">
+	                    		<img class="img-responsive center-block" src="{% static 'images/future/future17.PNG' %}" alt="" style="width:100%;"></a>
+	                        </div>
+	                    </div>
+	                </div>
+	                <br>	
+	                <div class="container">
+	                    <div class="row">
+	                         <div class="col-lg-4 col-sm-6">
+	                			<a href="{% static 'images/future/future18.PNG' %}">
+	                    		<img class="img-responsive center-block" src="{% static 'images/future/future18.PNG' %}" alt="" style="width:100%;"></a>
+	                		</div>
+	                		<div class="col-lg-4 col-sm-6">
+	                			<a href="{% static 'images/future/future19.PNG' %}">
+	                    		<img class="img-responsive center-block" src="{% static 'images/future/future19.PNG' %}" alt="" style="width:82%;"></a>
+	                        </div>
+	                    </div>
+	                </div>
+						<span class="caption text-muted">3D de la coque à l’état brut (CATIA)</span>
+						<br><br>
+						<p align="justify">D’après nos simulations, cette version finale présente un Cx égal à 0,2. Cette valeur est légèrement inférieure à celle du prototype EPIC (Cx de 0,17), mais supérieure à celle d’ORCA, le prédécesseur du véhicule actuel.</p>
+						<br>
+	                <div class="container">
+	                    <div class="row">
+	                         <div class="col-lg-4 col-sm-6">
+	                			<a href="{% static 'images/future/future14.png' %}">
+	                    		<img class="img-responsive center-block" src="{% static 'images/future/future14.png' %}" alt="" style="width:100%;"></a>
+	                		</div>
+	                		<div class="col-lg-4 col-sm-6">
+	                			<a href="{% static 'images/future/future15.png' %}">
+	                    		<img class="img-responsive center-block" src="{% static 'images/future/future15.png' %}" alt="" style="width:100%;"></a>
+	                        </div>
+	                    </div>
+	                </div>
+						<span class="caption text-muted">Etude de la pression exercée sur la coque ainsi que sa trainée en virage</span>
+						<br>
+					</div>
+					<div class="section">
+						<span id="chassis" class="anchor"></span>
+						<h2 class="section-heading">Le châssis</h2>
+
+						<p align="justify">De géométrie relativement semblable à celui d’EPIC, le châssis a néanmoins reçu quelques modifications afin d’améliorer la rigidité de l’ensemble, et de permettre au pilote une meilleure accessibilité tout en privilégiant la visibilité, primordiale en course ainsi que pour le contrôle technique :</p>
+						<ul>
+							<li>Distance entre les longerons plus large (meilleure habitabilité pilote)</li>
+							<li>Taille de la « cellule » plus longue afin d’accueillir des personnes de plus grande taille</li>
+							<li>Dossier incliné de façon à garantir une meilleure position de conduite</li>
+							<li>Bosse avant positionnée au niveau des appuis des roues directionnelles afin de reprendre la plupart des efforts (gain en rigidité)</li>
+							<li>Liaison train arrière par réduction de la distance inter-longerons (accueil du support moteur)</li>
+						</ul>
+						<br>
+	                <div class="container">
+	                    <div class="row">
+	                         <div class="col-lg-4 col-sm-6">
+	                			<a href="{% static 'images/future/future12.PNG' %}">
+	                    		<img class="img-responsive center-block" src="{% static 'images/future/future12.PNG' %}" alt="" style="width:93%;"></a>
+	                		</div>
+	                		<div class="col-lg-4 col-sm-6">
+	                			<a href="{% static 'images/future/future11.PNG' %}">
+	                    		<img class="img-responsive center-block" src="{% static 'images/future/future11.PNG' %}" alt="" style="width:100%;"></a>
+	                        </div>
+	                    </div>
+	                </div>
+	                <br>
+	                		<a href="{% static 'images/future/future13.PNG' %}">
+	                    	<img class="img-responsive center-block" src="{% static 'images/future/future13.PNG' %}" alt="" style="width:70%;"></a>
+					<br>
+					</div>
+					<div class="section">
+						<span id="avant" class="anchor"></span>
+						<h2 class="section-heading">Le train avant et la direction avant</h2>
+
+						<p align="justify">La direction avant est une des grandes innovations de ce nouveau véhicule par rapport à EPIC. De nombreuses heures de travail et de recherche ont permis la mise en place d’un système de direction garantissant le respect des angles d’Ackermann tout en simplifiant la conduite du véhicule.</p>
+						<p align="justify">Le principe est le suivant : le volant est en liaison directe avec une des deux roues, puis une bielle de renvoi relie cette roue à la seconde qui est donc pilotée indirectement.</p>						
+						<br>
+	                <div class="container">
+	                    <div class="row">
+	                         <div class="col-lg-4 col-sm-6">
+	                			<a href="{% static 'images/future/future10.PNG' %}">
+	                    		<img class="img-responsive center-block" src="{% static 'images/future/future10.PNG' %}" alt="" style="width:93%;"></a>
+	                		</div>
+	                		<div class="col-lg-4 col-sm-6">
+	                			<a href="{% static 'images/future/future9.PNG' %}">
+	                    		<img class="img-responsive center-block" src="{% static 'images/future/future9.PNG' %}" alt="" style="width:99%;"></a>
+	                        </div>
+	                    </div>
+	                </div>
+						<br><br>
+						<p align="justify">Ainsi, toutes les pièces ont été dessinées et réalisées en 3D (fusées de direction, rotules, bielles, etc…), et une étude cinématique a été menée afin de garantir un rayon de braquage inférieur à 8m.</p>
+						<p align="justify">Concernant les roues, ce sont les nouvelles qui ont été montées sur EPIC lors de la saison précédente (voir article Projets –Roues).</p>
+					</div>
+					<div class="section">
+						<span id="arriere" class="anchor"></span>
+						<h2 class="section-heading">Le train arrière amovible</h2>
+
+						<p align="justify">Autre nouveauté de ce prochain prototype : le train arrière démontable. Cette architecture modulable nous permettra d’effectuer des réglages et/ou des vérifications quelconques avant de partir en piste. C’est un problème que nous rencontrions sur EPIC : toute mise en place du moteur et du calorifugeage était complexe car l’accessibilité au compartiment arrière était limitée, tout comme la place offerte pour les manipulations. C’est donc par une solution simple et économique que nous avons supprimé ces problèmes, dans une optique de gain en temps et de facilité de montage.</p>					
+	                <br>
+	                <div class="container">
+	                    <div class="row">
+	                         <div class="col-lg-4 col-sm-6">
+	                			<a href="{% static 'images/future/future8.PNG' %}">
+	                    		<img class="img-responsive center-block" src="{% static 'images/future/future8.PNG' %}" alt="" style="width:83%;"></a>
+	                		</div>
+	                		<div class="col-lg-4 col-sm-6">
+	                			<a href="{% static 'images/future/future7.PNG' %}">
+	                    		<img class="img-responsive center-block" src="{% static 'images/future/future7.PNG' %}" alt=""></a>
+	                        </div>
+	                    </div>
+	                </div>
+						<br><br>
+						<p align="justify">Le train arrière est donc composé : </p>
+						<ul>
+							<li>d’une plaque support se fixant sur les longerons châssis (en marron)</li>
+							<li>de deux longerons solidaires de la plaque support, permettant de fixer la roue (en bleu)</li>
+							<li>d’une plaque intermédiaire pour fixer le moteur (en vert)</li>
+							<li>Bd’un frein V-brake ainsi que ses fixations latérales (en rouge)</li>
+							<li>De la roue arrière</li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="section">
+					<span id="carac" class="anchor"></span>
+					<h1 class="section-heading">Caractéristiques techniques générales</h1>
+					<div class="section">
+						<span id="dim" class="anchor"></span>
+						<h2 class="section-heading">Dimensions et masse</h2>
+						<ul>
+							<li>Longueur : 2m60</li>
+							<li>Largeur : 0,73m</li>
+							<li>Hauteur : 0,6m</li>
+							<li>Masse à vide prévisionnelle : 32 Kg</li>
+						</ul>
+					</div>
+					<div class="section">
+						<span id="mat" class="anchor"></span>
+						<h2 class="section-heading">Matériaux</h2>
+						<ul>
+							<li>Fibre de carbone (sec ou pré-imprégnée)</li>
+							<li>Nid d’abeille</li>
+							<li>Fibre de verre</li>
+							<li>Aluminium et acier (pièces de direction/ support de roue)</li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="section">
+					<span id="fab" class="anchor"></span>
+					<h1 class="section-heading">La fabrication et la réalisation des pièces</h1>
+					<div class="section">
+						<span id="fam" class="anchor"></span>
+						<h2 class="section-heading">Familiarisation et tests préliminaires avec la maquette 1:3</h2>
+						<p align="justify">En parallèle de la conception (qui est aujourd’hui terminée à 100%), nous avons développé des méthodes de mise en œuvre des matériaux, ainsi que des procédés de moulage sur une maquette à l’échelle 1:3 afin de se familiariser avec les techniques manuelles concernant principalement la fibre de carbone.</p>					
+	                <br>
+	                <div class="container">
+	                    <div class="row">
+	                         <div class="col-lg-4 col-sm-6">
+	                			<a href="{% static 'images/future/future6.jpg' %}">
+	                    		<img class="img-responsive center-block" src="{% static 'images/future/future6.jpg' %}" alt=""></a>
+	                		</div>
+	                		<div class="col-lg-4 col-sm-6">
+	                			<a href="{% static 'images/future/future5.jpg' %}">
+	                    		<img class="img-responsive center-block" src="{% static 'images/future/future5.jpg' %}" alt="" style="width:100%;"></a>
+	                        </div>
+	                    </div>
+	                </div>
+	                <br><br>
+						<p align="justify">De nombreux tests de résistance ont été réalisés sur des échantillons de carbone / nid d’abeille afin de pouvoir choisir la configuration optimale (nombre de couche, type de résine, température de cuisson, etc…).</p>					
+	                <br>
+	                <div class="container">
+	                    <div class="row">
+	                         <div class="col-lg-4 col-sm-6">
+	                			<a href="{% static 'images/future/future4.jpg' %}">
+	                    		<img class="img-responsive center-block" src="{% static 'images/future/future4.jpg' %}" alt="" style="width:70%;"></a>
+	                		</div>
+	                		<div class="col-lg-4 col-sm-6">
+	                			<a href="{% static 'images/future/future3.jpg' %}">
+	                    		<img class="img-responsive center-block" src="{% static 'images/future/future3.jpg' %}" alt="" style="width:70%;"></a>
+	                        </div>
+	                    </div>
+	                </div>
+	                <br>
+					</div>
+					<div class="section">
+						<span id="premiere" class="anchor"></span>
+						<h2 class="section-heading">Premières pièces </h2>
+						<p align="justify">La conception étant terminée, nous avons lancé la production des premières pièces du nouveau véhicule, en particulier le support arrière démontable. Nous sommes parvenus à sortir des longerons arrière avec un état de surface remarquable. La réalisation du support arrière est en cours.</p>					
+	                <br>
+	                <div class="container">
+	                    <div class="row">
+	                         <div class="col-lg-4 col-sm-6">
+	                			<a href="{% static 'images/future/future2.jpg' %}">
+	                    		<img class="img-responsive center-block" src="{% static 'images/future/future2.jpg' %}" alt=""></a>
+	                		</div>
+	                		<div class="col-lg-4 col-sm-6">
+	                			<a href="{% static 'images/future/future1.jpg' %}">
+	                    		<img class="img-responsive center-block" src="{% static 'images/future/future1.jpg' %}" alt="" style="width:94%;"></a>
+	                        </div>
+	                    </div>
+	                </div>
+	                <br>
+					</div>
+					<div class="section">
+						<span id="prochaine" class="anchor"></span>
+						<h2 class="section-heading">Prochaines étapes</h2>
+						<ul>
+							<li>La construction du master (en cours, projet terminé pour Janvier 2015)</li>
+							<li>La construction du moule</li>
+							<li>Construction de la coque</li>
+							<li>Intégration du châssis dans la coque</li>
+							<li>Réalisation de la partie arrière (en cours, projet terminé pour Janvier 2015)</li>
+							<li>Intégration des verrières</li>
+							<li>Finalisation et ajustement des pièces de direction avant / support de roue arrière</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</article>
+
+
+	{% endblock %}

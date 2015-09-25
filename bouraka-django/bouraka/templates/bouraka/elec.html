@@ -1,0 +1,272 @@
+{% extends "bouraka/base.html" %}
+{% load staticfiles %}
+
+{% block imports %}
+<!-- Custom CSS -->
+<link href="{% static 'css/elec.css' %}" rel="stylesheet">
+<!-- Custom Fonts -->
+<link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+{% endblock %}
+
+
+{% block content %}
+
+<article>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 style='text-align:center;'>L'électronique</h1>         
+                </div>
+
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+                    <nav role="navigation" class="table-of-contents">
+                    <h2 class="section-heading">Sommaire</h2>
+                        <ul>
+                        <li><a href="#introduction">Introduction</a></li>
+                        <li><a href="#fonctions">Fonctions internes au prototype : vision globale</a></li>
+                        <li><a href="#alimentation">L'alimentation en énergie électrique du prototype</a></li>
+                        <li><a href="#gestion">Gestion électronique du moteur</a></li>
+                        <li><a href="#elec_interne">L'électronique interne</a></li>
+                        <li><a href="#mere">La carte mère</a></li>
+                        <li><a href="#volant">La carte volant</a></li>
+                        <li><a href="#gps">La carte GPS</a></li>
+                        <li><a href="#systeme">Système de télémétrie</a></li>
+                        <li><a href="#envoi">Envoi de messages textuels</a></li>
+                        <li><a href="#electronique">Électronique externe au prototype</a></li>                        
+                        </ul>
+                    </nav>  
+
+                	<div class="section">
+                    <span id="introduction" class="anchor"></span>
+                    <h2 class="section-heading">Introduction</h2>
+                    <p align="justify">L'électricité, qu'elle soit vecteur de puissance (courants forts) ou d'information (courants faibles), est omniprésente au sein de notre prototype. S'il est motorisé par une machine thermique, tous les équipements annexes à sa propulsion fonctionnent à l'énergie électrique, du démarreur aux systèmes de télécommunications en passant par l'unité de contrôle du moteur.</p>
+
+                    <p align="justify">Ces quelques pages ont pour objectif de présenter les systèmes que nous concevons, qu'ils soient internes au prototype ou qu'ils servent à sa mise au point.</p>
+                    </div>
+                    <div class="section">
+                    <span id="fonctions" class="anchor"></span>
+                    <h2 class="section-heading">Fonctions internes au prototype : vision globale</h2>
+                    <p align="justify">La figure ci-dessous présente les différentes fonctions internes au prototype, qui vont être détaillées dans la suite de ce document. On peut noter la présence de deux systèmes de communication entre carte mère et carte volant, dus à la volonté de s'orienter petit à petit vers des standards automobiles (bus CAN).</p>
+                    <br>
+                    <a href="{% static 'images/projects/elec/elec (1).png' %}">
+                        <img class="img-responsive center-block" src="{% static 'images/projects/elec/elec (1).png' %}" alt="">
+                    </a>
+                    <span class="caption text-muted">Fonctions internes au prototype</span>
+                    <br><br>
+                    <p align="justify">La plupart des blocs fonctions décrits ci-dessus sont de conception maison : carte d'alimentation, carte volant, carte SMS sont conçues de A à Z par le Proto INSA Club, et réalisées avec l'aide de l'entreprise CIRLY, fabriquant de circuits imprimés. La carte mère est une carte de développement à base d'ARM, adaptée à nos besoins. Seuls les modules radio, qui nous sont fournis gracieusement par la société ADEUNIS RF et le boitier de gestion moteur (MOTEC) sont des produits du commerce.</p>
+
+                    <p align="justify">La réalisation de ces cartes électroniques est guidée par quelques principes simples :</p>
+
+                    <ul>
+                        <li>Sécurité du pilote, particulièrement vrai pour la conception de la carte d'alimentation</li>
+                        <li>Fiabilité des systèmes : éviter à tout prix une panne électrique en course</li>
+                        <li>Evolutivité des systèmes : permettre l'amélioration par reprogramation des cartes, sans avoir à reconcevoir la partie matérielle</li>
+                        <li>Aide à la gestion de la course : tous les systèmes sont conçus dans le but de permettre une gestion optimale de la course (transmission des données en temps réel, log sur carte SD pour débriefing, etc) ils doivent être simple d'utilisation, et surtout pas une source d’ennuis...</li>
+                    </ul>
+                    </div>
+
+                    <div class="section">
+                        <span id="alimentation" class="anchor"></span>
+                    <h2 class="section-heading" >L'alimentation en énergie électrique du prototype</h2>
+                    <p align="justify">L'alimentation en énergie électrique du prototype est gérée par une carte dédiée. Elle permet, au travers de relais automobiles, de fournir de forts courants au démarreur et au klaxon. Elle produit également une tension de 5V parfaitement régulée, pour alimenter l'ensemble de l'électronique du prototype.</p>
+
+                    <p align="justify">Cette régulation est le point critique de cette carte : il faut fournir une tension "propre", pour prévenir tout reset des cartes électroniques lors des forts appels de courant du démarreur ou du klaxon. Pour cela, nous avons choisi d'utiliser un régulateur à découpage produit par National Semiconductor : le LMZ14203.</p>
+                    <br>
+                    <a href="{% static 'images/projects/elec/elec (12).jpg' %}">
+                        <img class="img-responsive center-block" src="{% static 'images/projects/elec/elec (12).jpg' %}" alt="">
+                    </a>
+                    <span class="caption text-muted">Le LMZ14203 de National Semiconductor</span>
+                    <br><br>
+                    <p align="justify">Enfin, la carte d'alimentation regroupe toutes les protections électriques nécessaires pour assurer la sécurité du pilote, le stockage de l'énergie se faisant via une batterie lithium polymère.</p>
+
+                    <p align="justify">La particularité de cette carte est sa gravure sur du cuivre d'une épaisseur de 105µm, contre 35µm pour les cartes habituelles. Ceci s'explique par le dimensionnement des pistes d'alimentation du démarreur, prévues pour un courant de plus de 20 ampères.</p>
+                    <br>
+                    <a href="{% static 'images/projects/elec/elec (10).png' %}">
+                        <img class="img-responsive center-block" src="{% static 'images/projects/elec/elec (10).png' %}" alt="" style="width:50%;">
+                    </a>
+                    <span class="caption text-muted">La carte d'alimentation du prototype</span>
+                    <br><br>
+                    <p align="justify">On peut observer sur la photo ci-dessus les fusibles automobiles, protégeant les différents équipements alimentés par la carte. On note également une connectique différente pour les courants inférieurs à 5A (connecteurs verts Phoenix), et pour les courants plus importants (bornes à vis blanches).</p>
+                    <br>
+                    <a href="{% static 'images/projects/elec/elec (11).png' %}">
+                        <img class="img-responsive center-block" src="{% static 'images/projects/elec/elec (11).png' %}" alt="" style="width:50%;">
+                    </a>
+                    <span class="caption text-muted">"Coté pistes" de la carte alimentation</span>                    
+                    </div>
+                    <br>
+                    <div class="section">
+                    <span id="gestion" class="anchor"></span>
+                    <h2 class="section-heading">Gestion électronique du moteur</h2>
+                    <p align="justify">La gestion du moteur est réalisée par un calculateur électronique MOTEC M4. Produit du commerce, il est programmé lors des réglages du moteur.</p>
+                    <br>
+                    <a href="{% static 'images/projects/elec/elec (13).jpg' %}">
+                        <img class="img-responsive center-block" src="{% static 'images/projects/elec/elec (13).jpg' %}" alt="">
+                    </a>
+                    <span class="caption text-muted">Le MOTEC M4</span>
+                    <br><br>
+                    <p align="justify">Ce boitier (ECU, pour Engine Control Unit) est relié à l'ensemble des capteurs présents dans le prototype (vitesses, températures, pression, etc.). Outre sa fonction de gestion du moteur, il nous permet au travers d'une liaison série d'accéder à l'ensemble des valeurs des capteurs en temps réel. Cette fonctionnalité est exploitée par la carte mère du prototype, et sera développée en page 5 : "L'électronique interne : le système nerveux du prototype".</p>
+
+                    <p align="justify">Le Motec gérant l'interfaçage avec les capteurs, peu de développements ont été nécessaires à ce niveau pour l'acquisition des températures et des pressions. Seuls les capteurs de vitesse ont été entièrement réalisés par nos soins.</p>
+
+                    <p align="justify">On retrouve trois capteurs de vitesse dans le prototype, de technologie identique : l'un pour mesurer la vitesse de la roue arrière (vitesse du prototype), et deux sur le moteur (arbre à cames et vilebrequin). Il s'agit d'optocoupleurs à fourche, traversés par une cible circulaire dentée. Ainsi, on obtient en sortie du capteur un signal en créneau dont la fréquence est directement liée à la vitesse à mesurer. Ce signal est directement interprété par l'ECU.</p>
+                    <br>
+                    <a href="{% static 'images/projects/elec/elec (9).png' %}">
+                        <img class="img-responsive  center-block" src="{% static 'images/projects/elec/elec (9).png' %}" alt="" style="width:50%;">
+                    </a>
+                    <span class="caption text-muted">Quelques capteurs de vitesse de rechange</span>
+                    </div>
+                    <br>
+                    <div class="section">
+                    <span id="elec_interne" class="anchor"></span>
+                    <h2 class="section-heading">L'électronique interne : le système nerveux du prototype</h2>
+                    <p align="justify">L'électronique interne du prototype que nous avons développée se compose de plusieurs cartes :</p>
+
+                    <p align="justify">- une carte mère, absolument indispensable au bon fonctionnement du prototype, et dont la fonction principale est de coordonner l'ensemble des autres cartes (à gauche sur la photo ci-dessous)</p>
+
+                    <p align="justify">- Une carte "volant", réalisant l'interface entre le prototype et la pilote (en bas au centre de la photo ci-dessous)</p>
+
+                    <p align="justify">- Une carte d'alimentation qui a déjà été évoquée (en haut à droite sur la photo ci-dessous)</p>
+
+                    <p align="justify">- Une carte GPS (en bas à droite sur la photo ci-dessous)</p>
+                    <br>
+                    <a href="{% static 'images/projects/elec/elec (5).png' %}">
+                        <img class="img-responsive  center-block" src="{% static 'images/projects/elec/elec (5).png' %}" alt="">
+                    </a>
+                    <span class="caption text-muted">L'ensemble des cartes électroniques durant les tests, avant leur implantation dans le prototype</span>
+                    </div>
+                    <br>
+                    <div class="section">
+                    <span id="mere" class="anchor"></span>
+                    <h2 class="section-heading">La carte mère</h2>
+                    <p align="justify">Pièce maitresse de l'électronique embarquée, la carte mère possède de nombreuses fonctionnalités, développées à base d'une carte FEZ PANDA II, à laquelle nous avons ajouté une carte (en vert sur la photo) permettant l'interfaçage avec le reste du prototype (connectique, leds de débug, gestion des bus de données, etc). La FEZ PANDA II vient s'enficher sur cette carte, de conception maison.</p>
+
+                    <p align="justify">La carte mère reçoit l'ensemble des informations transmises par le calculateur moteur, chaque demi seconde. Il s'agit principalement des informations issues des capteurs. Après une vérification de l'intégrité des données reçues, la carte va les transmettre à la carte volant, pour affichage, ainsi qu'aux modules radio, pour transmission sans fil (voir page 6 : télécommunications). Elle va également sauvegarder ces données sur une carte SD, afin de permettre une exploitation à la fin du run.</p>
+
+                    <p align="justify">La carte mère communique également avec le GPS : elle le configure, puis en reçoit chaque seconde une information sur la position du prototype. Ces informations sont enregistrées sur la carte SD, et transmises aux modems radio.</p>
+
+                    <p align="justify">Enfin, la carte mère gère l'accélération du prototype, via un convertisseur numérique / analogique : en fonction du paramétrage choisi par la pilote sur la carte volant, et envoie, lors de l'accélération, une tension analogique, variable entre 0 et 5V.</p>
+                    <br>
+                    <a href="{% static 'images/projects/elec/elec (6).png' %}">
+                        <img class="img-responsive  center-block" src="{% static 'images/projects/elec/elec (6).png' %}" alt="" style="width:50%;">
+                    </a>
+                    <span class="caption text-muted">La carte mère du prototype EPIC</span>
+                    <br><br>
+                    <p align="justify">L'ensemble des informations enregistrées sur la carte SD sont horodatées, afin de permettre une exploitation plus facile.</p>
+                    </div>
+
+                    <div class="section">
+                    <span id="volant" class="anchor"></span>
+                    <h2 class="section-heading">La carte volant</h2>
+                    <p>A base de PIC 18F, cette carte, située dans le volant, est l'interface entre la pilote et le prototype. A partir de l'écran OLED et des boutons poussoirs, la pilote peut choisir entre différents réglages moteur pré-chargés dans le MOTEC, régler l'heure de la carte mère, et afficher les valeurs de l'ensemble des capteurs.</p>
+
+                    <p>Cette carte communique via une liaison série RS232 avec la carte mère.</p>
+                    <br>
+                    <a href="{% static 'images/projects/elec/elec (7).png' %}">
+                        <img class="img-responsive  center-block" src="{% static 'images/projects/elec/elec (7).png' %}" alt="" style="width:70%;">
+                    </a>
+                    <span class="caption text-muted">Le volant du prototype</span>
+                    </div>
+                    <br>
+                    <div class="section">
+                    <span id="gps" class="anchor"></span> 
+                    <h2 class="section-heading">La carte GPS</h2>
+                    <p>Sans doute la carte la plus simple du prototype, la carte GPS ne comporte qu'un module GPS à faible coût, un peu de connectique, et un MAX232 permettant d'interfacer la sortie série (TTL) du module GPS, avec les entrées de la carte mère (format RS232).</p>
+
+                    <p>L'intérêt de l'utilisation du protocole RS232 pour la liaison entre le GPS et la carte mère est sa relative immunité aux parasites, le module GPS étant déporté dans la queue du prototype, à un mètre environ de la carte mère.</p>
+                    <br>
+                    <a href="{% static 'images/projects/elec/elec (8).png' %}">
+                        <img class="img-responsive  center-block" src="{% static 'images/projects/elec/elec (8).png' %}" alt="" style="width:50%;">
+                    </a>
+                    <span class="caption text-muted">La carte GPS</span>
+                    <br>
+                    <div class="section">
+                    <span id="systeme" class="anchor"></span>
+                    <h2 class="section-heading">Système de télémétrie</h2>
+
+                    <p>Des modems radio ARF53, fournis par la société Adeunis nous permettent de recevoir, en temps réel, l'ensemble des informations issues du prototype : position, températures, vitesses, etc.</p>
+
+                    <p>Ces informations permettent d'adapter la stratégie de course.</p>
+                    <br>
+                    <a href="{% static 'images/projects/elec/elec (2).png' %}">
+                        <img class="img-responsive  center-block" src="{% static 'images/projects/elec/elec (2).png' %}" alt="">
+                    </a>
+                    <span class="caption text-muted">Interface homme machine télémétrie</span>
+                    <br><br>
+                    <p>Sur l'image ci-dessus, en fonctionnement, un point rouge symbolise la position du prototype sur le circuit. Ceci nécessite une modification du fond de carte à chaque changement de circuit.</p>
+                    <br>
+                    <a href="{% static 'images/projects/elec/elec (3).png' %}">
+                        <img class="img-responsive  center-block" src="{% static 'images/projects/elec/elec (3).png' %}" alt="">
+                    </a>
+                    <span class="caption text-muted">Suivi de la course lors du Shell Eco Marathon à Rotterdam, en mai 2012</span>
+                    </div>
+                    <br>
+                    <div class="section">
+                    <span id="envoi" class="anchor"></span>
+                    <h2 class="section-heading">Envoi de messages textuels</h2>
+
+                    <p>Les modems radios étant bidirectionnels, une carte a été développée pour permettre au pilote de lire des messages textuels, envoyés à partir du PC recevant les données de télémétrie. Cette carte est utilisée principalement lorsque les communications "voix" par talkies walkies sont difficiles, ce qui arrive régulièrement.</p>
+                    <br>
+                    <a href="{% static 'images/projects/elec/elec (4).png' %}">
+                        <img class="img-responsive center-block" src="{% static 'images/projects/elec/elec (4).png' %}" alt="" style="width:50%;">
+                    </a>
+                    <span class="caption text-muted">La carte "SMS", permettant à la pilote de lire les messages depuis le prototype</span>
+                    </div>
+                    <br>
+                    <div class="section">
+                    <span id="electronique" class="anchor"></span>
+                    <h2 class="section-heading">Électronique externe au prototype : un banc de test pour le moteur</h2>
+                    <br>
+                    <div class="container">
+                        <div class="row">
+                             <div class="col-lg-5 col-sm-6">
+                    <a href="{% static 'images/projects/elec/elec (14).png' %}">
+                        <img class="img-responsive center-block" src="{% static 'images/projects/elec/elec (14).png' %}" alt="" style="width:75%;">
+                    </a>
+                    </div>
+                    <div class="col-lg-5 col-sm-6">
+                    <a href="{% static 'images/projects/elec/elec (15).png' %}">
+                        <img class="img-responsive" src="{% static 'images/projects/elec/elec (15).png' %}" alt="">
+                    </a>
+
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <p>Le banc Moteur est un élément ne faisant pas partie intégrante du prototype. Son rôle est de permettre à l’équipe moteur d’effectuer des réglage sur le moteur du prototype.</p>
+
+                    <p>Le moteur, de conception « maison » peut fonctionner dans plusieurs configurations, et le but est de trouver le compromis idéal entre couple et vitesse afin d’obtenir une performance optimale du point de vue de la consommation en carburant.</p>
+
+                    <p>Pour cela, durant l’année, le moteur est enlevé du prototype. Il est relié à un axe portant une charge. Sur ce même axe a été placé un frein, commandé électriquement.</p>
+
+                    <p>Le banc comporte une armoire de commande, reliée à un ordinateur. L’opérateur lance l’IHM du banc sur l’ordinateur, et entre une commande de vitesse.</p>
+                    <br>
+                    <a href="{% static 'images/projects/elec/elec (19).png' %}">
+                        <img class="img-responsive center-block" src="{% static 'images/projects/elec/elec (19).png' %}" alt="" style="width:80%;">
+                    </a>
+                    <br>
+                    <p>Cette commande est transmise à une carte électronique de commande située dans l’armoire. Le moteur est lancé, et la carte de commande s’occupe de commander le frein afin d’asservir le moteur en vitesse, à la valeur transmise par l’ordinateur.</p>
+
+                    <p>Des capteurs permettent de mesurer la vitesse et le couple. Ces données sont renvoyées vers l’ordinateur, tracées en temps réel et enregistrées pour post-exploitation sous Matlab.</p>
+                    <br>
+                    <a href="{% static 'images/projects/elec/elec (18).png' %}">
+                        <img class="img-responsive center-block" src="{% static 'images/projects/elec/elec (18).png' %}" alt="">
+                    </a>
+                    <br>
+                    <p>L’injection, elle, est gérée électroniquement par un calculateur. Ce calculateur est donc lui aussi connecté au banc, afin qu’il ait les informations nécessaires (signaux capteurs…) et qu’il remplisse sa fonction.</p>
+                    <br>
+                    <a href="{% static 'images/projects/elec/elec (17).jpg' %}">
+                        <img class="img-responsive center-block" src="{% static 'images/projects/elec/elec (17).jpg' %}" alt="">
+                    </a>
+                    <br>
+                    <p>En parallèle de l’asservissement, une autre carte électronique permet de sélectionner une cartographie d’injection et la transmet au calculateur du moteur.</p>
+
+                    <p>Sans avoir à faire rouler le prototype, on peut donc faire fonctionner le moteur en intérieur, au local, observer son « comportement » et le modifier. C’est une fonction vitale pour le Proto Insa Club.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </article>
+
+{% endblock %}
