@@ -1,4 +1,3 @@
-psycopg2
 #django==1.7.3
 Django==1.8.4
 Pillow==2.7.0
@@ -7,3 +6,4 @@ django-pagedown
 django-widget-tweaks
 django-markdown-newsletter
 markdown
+psycopg2
