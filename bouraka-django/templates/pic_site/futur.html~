@@ -1,9 +1,0 @@
-{% extends "pic_site/base.html" %}
-{% load staticfiles %}
-
-{% block blueimp %}
-{% endblock %}
-
-{% block content %}
-<h3 align=center style="color:red"> EN CONSTRUCTION... </h3>
-{% endblock %}
