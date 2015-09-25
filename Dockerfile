@@ -10,7 +10,7 @@ COPY bouraka-django/ /bouraka/bouraka-django/
 COPY bouraka-static/ /bouraka/bouraka-static/
 COPY bouraka-media/ /bouraka/bouraka-media/
 COPY init-django-after-DB-ready.sh /bouraka/ 
-RUN apt-get -y update && apt-get install -y apache2 libapache2-mod-wsgi supervisor
+RUN apt-get -y update && apt-get install -y apache2 libapache2-mod-wsgi-py3 supervisor
 
 RUN mkdir -p /var/lock/apache2 /var/run/apache2 /var/log/supervisor
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf 

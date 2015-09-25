@@ -1,7 +1,7 @@
 db:
   image: postgres
 web:
-  image: local/bouraka
+  image: local/bouraka:2.0
   ports:
     - "12345:80"
   links:
