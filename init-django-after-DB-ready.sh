@@ -1,6 +1,6 @@
 #!/bin/bash
 
-service="Database"
+service="database"
 host="db"
 port="5432"
 
