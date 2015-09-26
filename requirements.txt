@@ -1,8 +1,8 @@
 Django==1.8.4
 Pillow
-django-photologue==3.1.1
-django-pagedown
-django-widget-tweaks
-django-markdown-newsletter
-markdown
+#django-photologue==3.1.1
+#django-pagedown
+#django-widget-tweaks
+#django-markdown-newsletter
+#markdown
 psycopg2
