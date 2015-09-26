@@ -28,7 +28,6 @@
   <link href="{% static 'css/style.css' %}" rel="stylesheet">
   {% block imports %}
   {% endblock %}
-
 </head>
 
 <body> 
@@ -45,13 +44,13 @@
         <a class="navbar-brand" href="/home">Proto INSA Club</a>
       </div>
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">                  
-          <li><a href="/actualites">News</a></li>          
+        <ul class="nav navbar-nav">
+					<li><a href="/actualites">News</a></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Projets<span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
               <li><a href="/accomplishments/roues/">Roues</a></li>
-              <li><a href="/accomplishments/moteur/">Moteur</a></li>
+							<!-- <li><a href="/accomplishments/moteur/">Moteur</a></li> -->
               <li><a href="/accomplishments/simulateur/">Simulateur</a></li>
               <li><a href="/accomplishments/elec/">Electronique</a></li>
               <li><a href="/futur/">Nouveau Prototype</a></li>
@@ -59,7 +58,7 @@
           </li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">L'équipe<span class="caret"></span></a>
-            <ul class="dropdown-menu" role="menu">
+            < class="dropdown-menu" role="menu">
               <li><a href="/history">Historique</a></li>
               <li><a href="/team">Nos Membres</a></li>
             </ul>
@@ -83,7 +82,7 @@
               <li><a href="/envol">Envol</a></li>
             </ul>
           </li>
-          <li><a href="/photologue">Galerie</a></li>
+					<!-- <li><a href="/photologue">Galerie</a></li> -->
           <li><a href="/sponsors">Sponsors</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
@@ -91,18 +90,6 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Espace Membres<span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
               <li><a href="http://redmine.protoinsaclub.tk">Gestion Interne</a></li>
-              {% if user.is_authenticated %}
-              {% if user.is_superuser %}
-              <li><a href="/newsletter">Newsletter</a></li>
-              <li><a href="/admin">Admin</a></li>
-              {% endif %}
-              <li class="divider"></li>
-              <li><a href="/members/logout">Deconnexion</a></li>
-              <li class="divider"></li>
-              <li><p class="navbar-text"> Log in as {{ user.username }} </p></li>
-              {% else %}
-              <li><a href="/members">Se connecter</a></li>
-              {% endif %}
             </ul>
           </li>
         </ul>

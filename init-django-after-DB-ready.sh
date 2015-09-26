@@ -30,4 +30,4 @@ done
 python $MANAGE_PATH migrate
 python $MANAGE_PATH collectstatic --noinput
 #Create superuser
-echo "from django.contrib.auth.models import User; User.objects.create_superuser($username, $email, $password)" | python $MANAGE_PATH shell
+echo "from django.contrib.auth.models import User; User.objects.create_superuser('$username','$email','$password')" | python $MANAGE_PATH shell
