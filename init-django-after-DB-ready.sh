@@ -27,6 +27,7 @@ do
   ((++counter))
 done
 
+python $MANAGE_PATH makemigrations
 python $MANAGE_PATH migrate
 python $MANAGE_PATH collectstatic --noinput
 #Create superuser
