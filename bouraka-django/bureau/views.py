@@ -1,3 +1,8 @@
 from django.shortcuts import render
+from django.models import BureauMember
 
-# Create your views here.
+def sponsors_list(request):
+    members = BureauMember.objects.all()
+    template = 'bureau/members.html'
+    context = { 'members': members }
+    return render(request, template, context)
