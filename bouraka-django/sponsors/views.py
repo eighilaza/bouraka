@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.models import Sponsor
+from sponsors.models import Sponsor
 
 def sponsors_list(request):
     sponsors = Sponsors.objects.all()
