@@ -37,7 +37,6 @@ urlpatterns = [
         url(r'^sponsors/', 'bouraka.views.sponsors'),
         
         url(r'^actualites/', include('news.urls')),
-        url(r'^members/', include('members.urls')),
         
         url(r'^$', 'bouraka.views.home'),
 ]

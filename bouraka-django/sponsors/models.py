@@ -5,7 +5,7 @@ class Sponsor(models.Model):
     group = models.CharField( max_length = 150, blank = True )
     website = models.CharField( max_length = 150, blank = True )
     description = models.TextField( blank = True )
-    logo = models.ImageField( upload_to = 'members' )
+    logo = models.ImageField( upload_to = 'sponsors' )
     def __str__(self):
         return self.name
 
