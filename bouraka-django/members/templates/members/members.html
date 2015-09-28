@@ -6,39 +6,34 @@
 
 {% block content %}
 <div class="container" style="padding-left:10%;padding-right:10%;" >
-	<div class="row">
-		<div class="col-xs-12">
-			<h1 style='text-align:center;'> L’équipe du PIC 2014 </h1><br>
-			<p>Présentation des membres de l’association pour cette nouvelle saison !</br>
-			Une équipe dynamique, composée d’une vingtaine de membres actifs et passionnés par le challenge du Shell Eco Marathon.</br>
-			</p>
-		</div>
-	</div>
-
-	{% if members_list %}
-	{% for member in members_list %}
-	<hr style="width:100%;" />
-	<div class="row" style="margin-bottom:3%" >
-		<div class="col-xs-12">
-			<h2 >{{ member.team  }}</h2>
-		</div>
-	</div>
-
-	<div class="row" style=" margin-top:2%">
+  <div class="row">
+    <div class="col-xs-12">
+      <h1 style='text-align:center;'> L’équipe du PIC </h1><br>
+    </div>
+  </div>
+  {% for team in teams_list %}
+  <hr style="width:100%;" />
+  <div class="row" style="margin-bottom:3%" >
+    <div class="col-xs-12">
+      <h2 >{{ team  }}</h2>
+    </div>
+  </div>
+  {% for member in members_list %}
+  {% if member.team == team %}
+  <div class="row" style=" margin-top:2%">
 		<div class="col-xs-2" >
-			<img  style="width:100%;" src="{{ member.photo }}" alt="Not Rendered">
+			<img  style="width:100%;" src="/media/{{ member.photo }}" alt="Not Rendered">
 		</div>
 			<div class="col-xs-10">
 				<p>
 				<h3>{{ member.name }}</h3>
-				<b>Président / Equipe Nouveau Proto & vie de l’association</b><br>
-				<p></p>3ème (bis) année Génie Mécanique et développement - INSA Lyon<br>
-				Entamant sa 4ème année au PIC, Niko a gravi les echelons avant de devenir team manager. Avec l’ambition de faire gagner le club en notoriété et en performance, il fait partie de ceux qui confèrent au PIC son ambiance unique.<br>
-				</p>
+				<p><b>{{ member.title }}</b></p>
+				<p>{{ member.year }}ème année au département {{ member.department  }} - INSA Lyon</p>
+				<p> {{ member.description }}</p>
 			</div>
 	</div>
-  {% endfor %}
-  {% else %}
-  <p> OOPS, seems like we lost all our members in the woods! </p>
-  {% endif %}
+	{% endif %}
+	{% endfor %}
+{% endfor %}
 </div>
+{% endblock %}

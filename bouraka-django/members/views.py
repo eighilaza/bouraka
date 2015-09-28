@@ -1,8 +1,12 @@
 from django.shortcuts import render
-from django.models import Member
+from members.models import Member
 
-def members_list(request):
-    members = Member.objects.all()
+def index(request):
+    members_list = Member.objects.all()
+    teams_list = []
+    for member in members_list:
+        if member.team not in teams_list:
+            teams_list.append(member.team)
     template = 'members/members.html'
-    context = { 'members': members }
+    context = { 'members_list': members_list, 'teams_list': teams_list }
     return render(request, template, context)
