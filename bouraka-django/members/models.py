@@ -8,5 +8,6 @@ class Member(models.Model):
     year = models.IntegerField( blank = True )
     description = models.TextField( blank = True )
     photo = models.ImageField( upload_to = 'members' )
+    order = models.IntegerField()
     def __str__(self):
         return self.name
