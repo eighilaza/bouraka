@@ -1,14 +1,11 @@
 from django.contrib import admin
-from news.models import New, Image, Video
+from news.models import News, NewsImage
 
 class InlineImage(admin.TabularInline):
-	model = Image
+  model = NewsImage
 
-class InlineVideo(admin.TabularInline):
-	model = Video
+class NewsAdmin(admin.ModelAdmin):
+  list_display = ('title', 'publication_date')
+  inlines=[InlineImage]
 
-class NewAdmin(admin.ModelAdmin):
-	list_display = ('title', 'publication_date')
-	inlines=[InlineImage, InlineVideo]
-
-admin.site.register(New,NewAdmin)
+admin.site.register(News, NewsAdmin)
