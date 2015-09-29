@@ -34,10 +34,11 @@ urlpatterns = [
         url(r'^epic/', 'bouraka.views.epic'),
         url(r'^orca/', 'bouraka.views.orca'),
         #url(r'^team/', 'bouraka.views.team'),
-        url(r'^sponsors/', 'bouraka.views.sponsors'),
+        #url(r'^sponsors/', 'bouraka.views.sponsors'),
 
         url(r'^actualites/', include('news.urls')),
         url(r'^team/', include('members.urls')),
+        url(r'^sponsors/', include('sponsors.urls')),
 
         url(r'^$', 'bouraka.views.home'),
 ]

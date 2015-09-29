@@ -3,7 +3,6 @@ from members.models import Member
 
 def index(request):
     members_list = Member.objects.order_by('order')
-    #all()
     teams_list = []
     for member in members_list:
         if member.team not in teams_list:
