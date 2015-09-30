@@ -32,3 +32,7 @@ python $MANAGE_PATH migrate
 python $MANAGE_PATH collectstatic --noinput
 #Create superuser
 echo "from django.contrib.auth.models import User; User.objects.create_superuser('$username','$email','$password')" | python $MANAGE_PATH shell
+
+#Change owner of media and static folders
+chown -R www-data:www-data /bouraka/bouraka-media
+chown -R www-data:www-data /bouraka/bouraka-static
