@@ -1,8 +1,5 @@
 Django==1.8.4
+#Pillow required to use ImageField
 Pillow
-#django-photologue==3.1.1
-#django-pagedown
-#django-widget-tweaks
-#django-markdown-newsletter
-#markdown
+#Pyscopg2 required to use postgres
 psycopg2
