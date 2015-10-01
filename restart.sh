@@ -6,4 +6,4 @@ rm -rf bouraka-static/*
 rm -rf bouraka-media/*
 rm -rf bouraka-db/*
 
-docker-compose.yml up
+docker-compose up
