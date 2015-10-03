@@ -1,7 +1,8 @@
+*~
 bouraka-db
 bouraka-media
 bouraka-static
-*~
+bouraka-django/*/migrations
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
