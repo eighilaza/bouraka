@@ -24,7 +24,7 @@ $  sudo docker-compose up -d
 ```
 
 ##How to back up
-Periodically run the script backup-bouraka.sh on the machine you want to keep the backups on
+On the machine you want to keep the backups on, run the script backup-bouraka.sh available in this repo
 
 ## Recover from backup
 Retrieve the backup and run
