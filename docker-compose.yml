@@ -7,7 +7,7 @@ bourakadb:
   volumes:
     - bouraka-db:/var/lib/postgresql/data
 bourakaweb:
-  image: local/bouraka:dev
+  build: .
   ports:
     - "12345:80"
   links:
