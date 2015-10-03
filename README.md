@@ -2,8 +2,8 @@
 bouraka is back.
 
 ## Prerequisites
-Docker engine https://docs.docker.com/installation/
-Docker-compose http://docs.docker.com/compose/install/
+- Docker engine https://docs.docker.com/installation/
+- Docker-compose http://docs.docker.com/compose/install/
 
 ## Fresh install
 Download latest release from GitHub
