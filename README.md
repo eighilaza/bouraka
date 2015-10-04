@@ -34,4 +34,3 @@ $ sudo docker-compose up -d
 
 ##How to update
 Will explain how when an update is released
-Toto²
