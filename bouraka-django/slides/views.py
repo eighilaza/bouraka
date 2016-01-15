@@ -6,4 +6,3 @@ def index(request, salide_name):
   template = 'slide/news.html'
   context = { 'news_list': news_list }
   return render(request, template, context)
-
