@@ -1,3 +1,7 @@
 from django.contrib import admin
+from members.models import Member
 
-# Register your models here.
+class SlideAdmin(admin.ModelAdmin):
+    list_display = ('title')
+
+admin.site.register(Slide, SlideAdmin)
