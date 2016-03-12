@@ -1,4 +1,4 @@
-FROM python:latest
+FROM python:3.4
 
 RUN mkdir -p /bouraka
 WORKDIR /bouraka

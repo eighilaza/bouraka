@@ -1,4 +1,4 @@
-bourakadb:
+bourakadevdb:
   image: postgres
   environment:
     - POSTGRES_PASSWORD=postgres
@@ -6,12 +6,12 @@ bourakadb:
     - POSTGRES_USER=postgres
   volumes:
     - bouraka-db:/var/lib/postgresql/data
-bourakaweb:
+bourakadevweb:
   build: .
   ports:
-    - "12345:80"
+    - "54321:80"
   links:
-    - bourakadb:db
+    - bourakadevdb:db
   volumes:
     - bouraka-django:/bouraka/bouraka-django
     - bouraka-media:/bouraka/bouraka-media
