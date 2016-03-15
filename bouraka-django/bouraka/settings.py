@@ -88,17 +88,21 @@ WSGI_APPLICATION = 'bouraka.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-      'ENGINE': 'django.db.backends.postgresql_psycopg2',
-      'NAME': 'postgres',
-      'USER': 'postgres',
-      'PASSWORD': 'postgres',
-      'HOST': 'db',
-      'PORT': 5432,
+DB_CREDS_FILE = os.path.join(BASE_DIR, 'db-creds.txt')
+try:
+    with open(DB_CREDS_FILE, 'r') as f:
+        DATABASES = eval(f.read())
+except IOError:
+    DATABASES = {
+        'default': {
+          'ENGINE': 'django.db.backends.postgresql_psycopg2',
+          'NAME': 'postgres',
+          'USER': 'postgres',
+          'PASSWORD': 'postgres',
+          'HOST': 'db',
+          'PORT': 5432,
+        }
     }
-}
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
