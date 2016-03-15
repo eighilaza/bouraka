@@ -1,5 +1,5 @@
 bourakadevdb:
-  image: postgres
+  image: postgres:9.4
   environment:
     - POSTGRES_PASSWORD=postgres
     - POSTGRES_DB=postgres
