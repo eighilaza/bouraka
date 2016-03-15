@@ -5,7 +5,7 @@ bourakadevdb:
     - POSTGRES_DB=postgres
     - POSTGRES_USER=postgres
   volumes:
-    - bouraka-db:/var/lib/postgresql/data
+    - ./bouraka-db:/var/lib/postgresql/data
 bourakadevweb:
   build: .
   ports:
@@ -13,6 +13,6 @@ bourakadevweb:
   links:
     - bourakadevdb:db
   volumes:
-    - bouraka-django:/bouraka/bouraka-django
-    - bouraka-media:/bouraka/bouraka-media
-    - bouraka-static:/bouraka/bouraka-static
+    - ./bouraka-django:/bouraka/bouraka-django
+    - ./bouraka-media:/bouraka/bouraka-media
+    - ./bouraka-static:/bouraka/bouraka-static
