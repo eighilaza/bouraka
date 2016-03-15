@@ -44,75 +44,13 @@
       </div>
       <!-- list of pictures to display -->
       <div id="links" class="links">
-        <a href="{% static 'images/diapo/0001.jpg' %}" title="pic 1">
-          <!-- <img src="{% static 'images/thumbnails/photonews2.jpg' %}" alt="pic 2"> -->
-        </a>
-        <a href="{% static 'images/diapo/0002.jpg' %}" title="pic 2">
-          <!-- <img src="{% static 'images/thumbnails/photo3.jpg' %}" alt="pic 3"> -->
-        </a>
-        <a href= "{% static 'images/diapo/0003.jpg' %}" title="pic 3">
-          <!-- <img src="{% static 'images/thumbnails/photonews1.jpg' %}" alt="pic 4"> -->
-        </a>
-        <a href= "{% static 'images/diapo/0004.jpg' %}" title="pic 4">
-          <!-- <img src="{% static 'images/thumbnails/photonews1.jpg' %}" alt="pic 4"> -->
-        </a>
-        <a href= "{% static 'images/diapo/0005.jpg' %}" title="pic 5">
-          <!-- <img src="{% static 'images/thumbnails/photonews1.jpg' %}" alt="pic 4"> -->
-        </a>
-        <a href= "{% static 'images/diapo/0006.jpg' %}" title="pic 6">
-          <!-- <img src="{% static 'images/thumbnails/photonews1.jpg' %}" alt="pic 4"> -->
-        </a>
-        <a href= "{% static 'images/diapo/0007.jpg' %}" title="pic 7">
-          <!-- <img src="{% static 'images/thumbnails/photonews1.jpg' %}" alt="pic 4"> -->
-        </a>
-        <a href= "{% static 'images/diapo/0008.jpg' %}" title="pic 8">
-          <!-- <img src="{% static 'images/thumbnails/photonews1.jpg' %}" alt="pic 4"> -->
-        </a>
-        <a href= "{% static 'images/diapo/0009.jpg' %}" title="pic 9">
-          <!-- <img src="{% static 'images/thumbnails/photonews1.jpg' %}" alt="pic 4"> -->
-        </a>
-        <a href= "{% static 'images/diapo/0010.jpg' %}" title="pic 10">
-          <!-- <img src="{% static 'images/thumbnails/photonews1.jpg' %}" alt="pic 4"> -->
-        </a>
-        <a href= "{% static 'images/diapo/0011.jpg' %}" title="pic 11">
-          <!-- <img src="{% static 'images/thumbnails/photonews1.jpg' %}" alt="pic 4"> -->
-        </a>
-        <a href= "{% static 'images/diapo/0012.jpg' %}" title="pic 12">
-          <!-- <img src="{% static 'images/thumbnails/photonews1.jpg' %}" alt="pic 4"> -->
-        </a>
-        <a href= "{% static 'images/diapo/0013.jpg' %}" title="pic 13">
-          <!-- <img src="{% static 'images/thumbnails/photonews1.jpg' %}" alt="pic 4"> -->
-        </a>
-        <a href= "{% static 'images/diapo/0014.jpg' %}" title="pic 14">
-          <!-- <img src="{% static 'images/thumbnails/photonews1.jpg' %}" alt="pic 4"> -->
-        </a>
-        <a href= "{% static 'images/diapo/0015.jpg' %}" title="pic 15">
-          <!-- <img src="{% static 'images/thumbnails/photonews1.jpg' %}" alt="pic 4"> -->
-        </a>
-        <a href= "{% static 'images/diapo/0016.jpg' %}" title="pic 16">
-          <!-- <img src="{% static 'images/thumbnails/photonews1.jpg' %}" alt="pic 4"> -->
-        </a>
-        <a href= "{% static 'images/diapo/0017.jpg' %}" title="pic 17">
-          <!-- <img src="{% static 'images/thumbnails/photonews1.jpg' %}" alt="pic 4"> -->
-        </a>
-        <a href= "{% static 'images/diapo/0018.jpg' %}" title="pic 18">
-          <!-- <img src="{% static 'images/thumbnails/photonews1.jpg' %}" alt="pic 4"> -->
-        </a>
-        <a href= "{% static 'images/diapo/0019.jpg' %}" title="pic 19">
-          <!-- <img src="{% static 'images/thumbnails/photonews1.jpg' %}" alt="pic 4"> -->
-        </a>
-        <a href= "{% static 'images/diapo/0020.jpg' %}" title="pic 20">
-          <!-- <img src="{% static 'images/thumbnails/photonews1.jpg' %}" alt="pic 4"> -->
-        </a>
-        <a href= "{% static 'images/diapo/0021.jpg' %}" title="pic 21">
-          <!-- <img src="{% static 'images/thumbnails/photonews1.jpg' %}" alt="pic 4"> -->
-        </a>
-        <a href= "{% static 'images/diapo/0022.jpg' %}" title="pic 22">
-          <!-- <img src="{% static 'images/thumbnails/photonews1.jpg' %}" alt="pic 4"> -->
-        </a>
-        <a href= "{% static 'images/diapo/0023.png' %}" title="pic 23">
-          <!-- <img src="{% static 'images/thumbnails/photonews1.jpg' %}" alt="pic 4"> -->
-        </a>
+        {% if slide %}
+          {% if slide.slideimage_set.all %}
+            {% for image in slide.slideimage_set.all %}
+              <a href="/media/{{ image.image }}" title=""></a>
+            {% endfor %}
+          {% endif %}
+        {% endif %}
       </div>
       <br>
     </div>

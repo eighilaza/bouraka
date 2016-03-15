@@ -2,12 +2,19 @@ from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from django.template import RequestContext, loader
 from news.models import News
+from slides.models import Slide
 from django.http import HttpResponseRedirect
+
 def home(request):
     latest_news_list = News.objects.order_by('-publication_date')[:4]
+    try:
+         slide = Slide.objects.get(title='home')
+    except Slide.DoesNotExist:
+        slide = None 
     template = loader.get_template('bouraka/home.html')
     context = {
             'latest_news_list': latest_news_list,
+            'slide': slide,
     }
     return render(request, 'bouraka/home.html', context)
 
