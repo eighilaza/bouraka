@@ -52,3 +52,5 @@ def simulateur(request):
     return render(request, 'bouraka/simulateur.html')
 def accomplishments(request):
     return render(request, 'bouraka/accomplishments.html')
+def contacts(request):
+    return render(request, 'bouraka/contacts.html')
