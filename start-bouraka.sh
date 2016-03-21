@@ -13,6 +13,9 @@ db_pass=postgres
 db_host=db
 db_port=5432
 
+#Deployment option
+web_port=5220
+
 #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!#
 ### DO NOT MODIFY ANYTHING BELLOW THIS POINT ###
 #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!#
@@ -46,6 +49,7 @@ echo "{
 export POSTGRES_PASSWORD=$db_pass
 export POSTGRES_DB=$db_name
 export POSTGRES_USER=$db_user
+export WEB_PORT=$web_port
 
 #Run docker-compose
 docker-compose up
