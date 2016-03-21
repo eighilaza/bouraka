@@ -4,6 +4,7 @@ bouraka-media
 bouraka-static
 bouraka-django/*/migrations
 bouraka-django/secret.txt
+bouraka-django/db-creds.txt
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
