@@ -18,7 +18,8 @@ db_port=5432
 #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!#
 
 #To put in init-django-after-DB-ready.sh
-echo "host=$db_host
+echo "#!/bin/bash
+host=$db_host
 port=$db_port
 username=$username
 password=$password

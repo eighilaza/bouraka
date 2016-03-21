@@ -1,5 +1,3 @@
-#!/bin/bash
-
 service="database"
 
 max=100000
