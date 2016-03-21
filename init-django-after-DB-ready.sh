@@ -1,12 +1,6 @@
 #!/bin/bash
 
 service="database"
-host="db"
-port="5432"
-
-username="admin"
-password="admin"
-email="admin@insa-lyon.fr"
 
 max=100000
 counter=1

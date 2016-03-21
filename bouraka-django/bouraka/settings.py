@@ -30,13 +30,12 @@ except IOError:
         secret.write(SECRET_KEY)
         secret.close()
     except IOError:
-        Exception('Please create a %s file with random characters to generate your secret key!' % SECRET_FILE)
+        Exception('Failed to save secret file!')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1']
-
 
 # Application definition
 
@@ -83,7 +82,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'bouraka.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
