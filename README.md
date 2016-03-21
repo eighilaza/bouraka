@@ -33,4 +33,7 @@ $ sudo docker-compose up -d
 ```
 
 ##How to update
-Will explain how when an update is released
+Download release
+Unzip
+In the new folder copy bouraka-{db,media,static,start-bouraka.sh} from the previous deployment
+Run ./start-bouraka.sh
