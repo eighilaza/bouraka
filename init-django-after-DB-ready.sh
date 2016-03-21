@@ -1,3 +1,9 @@
+#!/bin/bash
+host=db
+port=5432
+username=admin
+password=admin
+email=admin@insa-lyon.fr
 service="database"
 
 max=100000
