@@ -8,19 +8,14 @@ bouraka is back.
 ## Fresh install
 Download and unzip the latest release https://github.com/eighilaza/bouraka/releases
 
-Edit bouraka/docker-compose.yml:
+Edit bouraka/start-bouraka.sh:
 - Change the postgres username, password and db name
 - Change the port you would like to expose bouraka on
-
-Edit bouraka/bouraka-django/bouraka/settings.py:
-- Change the db credentials according to what you put in docker-compose.yml
-
-Edit the bouraka/init-django-after-DB-ready.sh:
-- Change the admin credentials
+- Change the django admin credentials
 
 Start everything with
 ```
-$  sudo docker-compose up -d
+$ ./start-bouraka.sh 
 ```
 
 ##How to back up
@@ -29,11 +24,11 @@ On the machine you want to keep the backups on, run the script backup-bouraka.sh
 ## Recover from backup
 Retrieve the backup and run
 ```
-$ sudo docker-compose up -d
+$ ./start-bouraka.sh
 ```
 
 ##How to update
-Download release
-Unzip
-In the new folder copy bouraka-{db,media,static,start-bouraka.sh} from the previous deployment
-Run ./start-bouraka.sh
+- Download latest release
+- Unzip it
+- In the resulting folder copy the directories bouraka-{db,media,static} and the file named start-bouraka.sh, from the previous deployment.
+- Run ./start-bouraka.sh
