@@ -1,6 +1,6 @@
 #!/bin/bash
 
-docker rm -f bourakadev_bourakadevweb_1 bourakadev_bourakadevdb_1
+docker rm -f bourakadev_bourakaweb_1 bourakadev_bourakadb_1
 
 rm -rf bouraka-static/*
 rm -rf bouraka-media/*
