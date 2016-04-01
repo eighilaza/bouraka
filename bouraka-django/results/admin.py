@@ -1,11 +1,7 @@
 from django.contrib import admin
-from results.models import Result, ResultImage 
-
-class InlineImage(admin.TabularInline):
-  model = ResultImage
+from results.models import Result
 
 class ResultAdmin(admin.ModelAdmin):
-  list_display = ('title',)
-  inlines=[InlineImage]
+  list_display = ('year',)
 
 admin.site.register(Result, ResultAdmin)

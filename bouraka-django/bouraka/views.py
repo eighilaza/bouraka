@@ -10,7 +10,7 @@ def home(request):
     try:
          slide = Slide.objects.get(title='home')
     except Slide.DoesNotExist:
-        slide = None 
+        slide = None
     template = loader.get_template('bouraka/home.html')
     context = {
             'latest_news_list': latest_news_list,
@@ -20,8 +20,6 @@ def home(request):
 
 def gallery(request):
     return render(request, 'bouraka/gallery.html')
-def sponsors(request):
-    return render(request, 'bouraka/sponsors.html')
 def history(request):
     return render(request, 'bouraka/history.html')
 def team(request):
@@ -32,8 +30,6 @@ def educeco(request):
     return render(request, 'bouraka/educeco.html')
 def michelin(request):
     return render(request, 'bouraka/michelin.html')
-def results(request):
-    return render(request, 'bouraka/results.html')
 def futur(request):
     return render(request, 'bouraka/futur.html')
 def envol(request):

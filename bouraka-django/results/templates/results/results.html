@@ -13,9 +13,9 @@
 <div class="container" style="padding-left:15%;padding-right:15%;font-size:120%" >
 <h2 align=center>Temps forts et résultats</h2> </br>
 
-{% for result in sponsors_list %}
-<b>{{ sponsor.year }}</b></br>
-{{ sponsor.description }}</br></br>
+{% for result in results_list %}
+<b>{{ result.year }}</b></br>
+{{ result.description }}</br></br>
 {% endfor %}
 
 </div>

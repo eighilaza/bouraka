@@ -28,18 +28,16 @@ urlpatterns = [
         url(r'^shell/', 'bouraka.views.shell'),
         url(r'^educeco/', 'bouraka.views.educeco'),
         url(r'^michelin/', 'bouraka.views.michelin'),
-        url(r'^results/', 'bouraka.views.results'),
         url(r'^futur/', 'bouraka.views.futur'),
         url(r'^envol/', 'bouraka.views.envol'),
         url(r'^epic/', 'bouraka.views.epic'),
         url(r'^orca/', 'bouraka.views.orca'),
         url(r'^contacts/', 'bouraka.views.contacts'),
-        #url(r'^team/', 'bouraka.views.team'),
-        #url(r'^sponsors/', 'bouraka.views.sponsors'),
 
         url(r'^actualites/', include('news.urls')),
         url(r'^team/', include('members.urls')),
         url(r'^sponsors/', include('sponsors.urls')),
+        url(r'^results/', include('results.urls')),
 
         url(r'^$', 'bouraka.views.home'),
 ]
