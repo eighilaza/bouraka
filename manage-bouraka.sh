@@ -72,8 +72,10 @@ function update {
   echo "new_release available at: "$new_release
   wget $update_url -O newVersion.zip
   #cp $new_release ./newVersion.zip
+  mv all-vars.txt all-vars.txt.save
   stop
   unzip newVersion.zip
+  rm all-vars.txt && mv all-vars.txt.save all-vars.txt
   #DockerComposeBuild - BAD IDEA, SHOULD PULL LATEST IMAGE
   start-again
 }
