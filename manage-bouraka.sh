@@ -34,37 +34,53 @@ function exportCredsForDockerCompose {
   export WEB_PORT=$web_port
 }
 
-function runDockerCompose {
+function DockerComposeUp {
   docker-compose up
+}
+
+function DockerComposeBuild {
+  docker-compose build
 }
 
 function start-fresh {
   putCredsInInitDjangoScript
   putCredsInDBCredsFile
   exportCredsForDockerCompose
-  runDockerCompose
+  DockerComposeUp
 }
 
 function start-again {
   exportCredsForDockerCompose
-  runDockerCompose
+  DockerComposeUp
 }
 
 function stop {
-  #TODO
+  docker stop bouraka_db bouraka_web
+  docker rm bouraka_db bouraka_web
 }
 
 function restart {
-  #TODO - probably gonna call stop then start-again
+  stop
+  start-again
 }
 
 function update {
-
+  #TODO - figure out a clean way to take either a local or remote path to the new release
+  #TODO - figure out when it is best to stop the containers (before unzip, before build or before start-again)
+  #TODO - test what happens if manage-bouraka.sh is modified in the new release
+  read -p "Please input the url or path to the release you want to deploy (.zip): " new_release
+  echo "new_release available at: "$new_release
+  #wget $update_url -O newVersion.zip
+  cp $new_release ./newVersion.zip
+  stop
+  unzip newVersion.zip
+  #DockerComposeBuild
+  start-again
 }
 
 if [[ $# -ne 1 ]]
 then
-  echo "usage: ./$1 {start-fresh|start-again|stop|update}"
+  echo "usage: ./$1 {start-fresh|stop|start-again|restart|update}"
   exit
 fi
 
@@ -72,16 +88,24 @@ source ./all-vars.txt
 
 case $1 in
   start-fresh)
-    echo $1 start-fresh
+    echo $1
+    start-fresh
     ;;
   start-again)
-    echo $1 start-again
+    echo $1
+    start-again
     ;;
   stop)
-    echo $1 stop
+    echo $1
+    stop
+    ;;
+  restart)
+    echo $1
+    restart
     ;;
   update)
-    echo $1 update
+    echo $1
+    update
     ;;
   *)
   echo "usage: ./$1 {start-fresh|start-again|stop|update}"
