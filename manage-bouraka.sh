@@ -65,16 +65,16 @@ function restart {
 }
 
 function update {
-  #TODO - figure out a clean way to take either a local or remote path to the new release
+  #TODO - figure out a clean way to take either a local or remote path (url) to the new release
   #TODO - figure out when it is best to stop the containers (before unzip, before build or before start-again)
   #TODO - test what happens if manage-bouraka.sh is modified in the new release
   read -p "Please input the url or path to the release you want to deploy (.zip): " new_release
   echo "new_release available at: "$new_release
-  #wget $update_url -O newVersion.zip
-  cp $new_release ./newVersion.zip
+  wget $update_url -O newVersion.zip
+  #cp $new_release ./newVersion.zip
   stop
   unzip newVersion.zip
-  #DockerComposeBuild
+  #DockerComposeBuild - BAD IDEA, SHOULD PULL LATEST IMAGE
   start-again
 }
 
