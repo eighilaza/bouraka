@@ -1,0 +1,15 @@
+#Django admin
+export username="admin"
+export password="admin"
+export email="admin@insa-lyon.fr"
+
+#DB creds
+export db_engine=django.db.backends.postgresql_psycopg2
+export db_name=postgres
+export db_user=postgres
+export db_pass=postgres
+export db_host=db
+export db_port=5432
+
+#Deployment option
+export web_port=5220
