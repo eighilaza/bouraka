@@ -35,7 +35,7 @@ function exportCredsForDockerCompose {
 }
 
 function DockerComposeUp {
-  docker-compose up
+  docker-compose up -d
 }
 
 function DockerComposeBuild {
@@ -77,6 +77,7 @@ function update {
   unzip newVersion.zip
   rm all-vars.txt && mv all-vars.txt.save all-vars.txt
   #DockerComposeBuild - BAD IDEA, SHOULD PULL LATEST IMAGE
+  rm newVersion.zip
   start-again
 }
 
